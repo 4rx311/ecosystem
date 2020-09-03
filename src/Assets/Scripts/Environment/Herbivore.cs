@@ -13,7 +13,7 @@ namespace Assets.Scripts.Creatures
 
         private void Start() => base.Start();
 
-        private void FixedUpdate() => _stateMachine.DoOnTick();
+        private void Update() => _stateMachine.DoOnTick();
 
         private void OnDestroy() => base.OnDestroy();
 
@@ -22,27 +22,18 @@ namespace Assets.Scripts.Creatures
             _stateMachine = new StateMachine();
             
             var search = new Search(this);
+            var approach = new Approach(this, "HerbFood");
             var flee = new Flee(this, "Carnivore");
             
-            _stateMachine.AddAnyTransition(flee, () => EnemyInRange());
-            At(flee, search, () => EnemyInRange() == false);
-            
+            _stateMachine.AddAnyTransition(flee, () => TargetInRange("Carnivore"));
+            At(flee, search, () => !TargetInRange("Carnivore"));
+            //At(search, approach, () => TargetInRange("HerbFood"));
+
             _stateMachine.SetState(search);
             
-            void At(IState to, IState from, Func<bool> condition) =>
-                _stateMachine.AddTransition(to, from, condition);
+            void At(IState from, IState to, Func<bool> condition) =>
+                _stateMachine.AddTransition(from, to, condition);
         }
 
-        private bool EnemyInRange()
-        {
-            var enemy = FindClosestTarget("Carnivore");
-            if (enemy == null)
-                return false;
-            float distanceToEnemy = Vector2.Distance(enemy.transform.position, transform.position);
-            if (distanceToEnemy <= visionDistance)
-                return true;
-
-            return false;
-        }
     }
 }

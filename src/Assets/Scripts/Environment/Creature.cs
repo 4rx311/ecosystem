@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -18,6 +19,8 @@ namespace Assets.Scripts.Creatures
         public float repelAmount = 1f;
         public float repelRange = .5f;
 
+        [HideInInspector] public GameObject currentTarget;
+
         private Rigidbody2D _rigidbody;
         private static List<Rigidbody2D> _creaturesRbs;
         
@@ -35,8 +38,6 @@ namespace Assets.Scripts.Creatures
             _creaturesRbs.Remove(_rigidbody);
         }
         
-        
-
         public void TakeDamage(int amount)
         {
             health -= amount;
@@ -47,8 +48,9 @@ namespace Assets.Scripts.Creatures
 
         public void MoveTo(Vector2 direction)
         {
-            Debug.Log("moving");
+            Debug.Log($"dir - {direction}");
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+            Debug.Log($"angle - {angle}");
             _rigidbody.rotation = angle;
 
             _rigidbody.AddForce(direction * speed, ForceMode2D.Force);
@@ -68,6 +70,18 @@ namespace Assets.Scripts.Creatures
             return GameObject.FindGameObjectsWithTag(targetTagName)
                 .OrderBy(o => (o.transform.position - position).sqrMagnitude)
                 .FirstOrDefault();
+        }
+
+        public bool TargetInRange(string tagName)
+        {
+            var target = FindClosestTarget(tagName);
+            if (target == null)
+                return false;
+            float distanceToTarget = Vector2.Distance(target.transform.position, transform.position);
+            if (distanceToTarget <= visionDistance)
+                return true;
+
+            return false;
         }
     }
 }
