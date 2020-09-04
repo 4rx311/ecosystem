@@ -27,7 +27,8 @@ namespace Assets.Scripts.Creatures
             
             _stateMachine.AddAnyTransition(flee, () => TargetInRange("Carnivore"));
             At(flee, search, () => !TargetInRange("Carnivore"));
-            //At(search, approach, () => TargetInRange("HerbFood"));
+            At(search, approach, () => TargetInRange("HerbFood"));
+            At(approach, search, () => !TargetInRange("HerbFood"));
 
             _stateMachine.SetState(search);
             

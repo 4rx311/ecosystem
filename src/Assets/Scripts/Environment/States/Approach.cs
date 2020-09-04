@@ -29,7 +29,8 @@ namespace Assets.Scripts.Creatures.States
 
         private Vector3 GetTargetPosition()
         {
-            return new Vector3();
+            var target = _creature.FindClosestTarget(_targetTagName);
+            return target?.transform.position ?? Vector3.zero;
         }
 
     }
