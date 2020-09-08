@@ -1,39 +1,38 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Numerics;
+using Assets.Scripts.Creatures;
+using Assets.Scripts.Creatures.Components;
+using UnityEngine;
+using Quaternion = UnityEngine.Quaternion;
 
 namespace Assets.Scripts
 {
     public class CreaturesSpawner : MonoBehaviour
     {
-        public GameObject carnivorePrefab;
-        public GameObject herbivorePrefab;        
+        //public GameObject carnivorePrefab;
+        public FlockAgent herbivorePrefab;        
         public int carnivoreAmount;
         public int herbivoreAmount;
-        public float spawnRadius = 10f;
-
+        public float creaturesDensity = 0.08f;
+        
         private void Start()
         {
             SpawnHerbivores();
-            SpawnCarnivores();
+            //SpawnCarnivores();
         }
 
         public void SpawnHerbivores()
         {
             for (var i = 0; i < herbivoreAmount; i++)
-                SpawnCreature(herbivorePrefab);
+                SpawnAgent(herbivorePrefab, herbivoreAmount);
         }
 
-        public void SpawnCarnivores()
+        private void SpawnAgent(FlockAgent agentPrefab, int creaturesCount)
         {
-            for (var i = 0; i < carnivoreAmount; i++)
-                SpawnCreature(carnivorePrefab);
-        }
+            var spawnPos = Random.insideUnitCircle * creaturesCount * creaturesDensity;
+            var rotation = Quaternion.Euler(UnityEngine.Vector3.forward * Random.Range(0f, 360f));
 
-        private void SpawnCreature(GameObject creaturePrefab)
-        {
-            var spawnPos = new Vector2();
-            spawnPos += Random.insideUnitCircle.normalized;
-
-            Instantiate(creaturePrefab, spawnPos, Quaternion.identity);
+            Instantiate(agentPrefab, spawnPos, rotation, transform);
         }
     }
 }

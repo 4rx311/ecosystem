@@ -48,9 +48,7 @@ namespace Assets.Scripts.Creatures
 
         public void MoveTo(Vector2 direction)
         {
-            Debug.Log($"dir - {direction}");
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-            Debug.Log($"angle - {angle}");
             _rigidbody.rotation = angle;
 
             _rigidbody.AddForce(direction * speed, ForceMode2D.Force);
