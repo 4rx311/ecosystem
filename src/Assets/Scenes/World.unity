@@ -150,12 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 526d7536032887b439f6ea07733fab8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  foodPrefab: {fileID: 54150203040265565, guid: c2c3c3acff75bab4a9617ae11931301e,
-    type: 3}
-  rockPrefab: {fileID: 0}
-  foodStartAmount: 0
-  rockStartAmount: 0
-  spawnRadius: 10
 --- !u!4 &87051933
 Transform:
   m_ObjectHideFlags: 0
@@ -1045,11 +1039,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978e61f436becad46820c6f9e06d8f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  herbivorePrefab: {fileID: -7505284452881136472, guid: d308011f65f768945a84400f73d03a9c,
+  carnivorePrefab: {fileID: 7802793637514031372, guid: 38bb61b8c30518f478f83b90a6282964,
+    type: 3}
+  herbivorePrefab: {fileID: 3560847819842951699, guid: d308011f65f768945a84400f73d03a9c,
     type: 3}
   carnivoreAmount: 0
-  herbivoreAmount: 100
-  creaturesDensity: 0.09
+  herbivoreAmount: 30
+  creaturesDensity: 0.08
 --- !u!4 &2099413394
 Transform:
   m_ObjectHideFlags: 0
