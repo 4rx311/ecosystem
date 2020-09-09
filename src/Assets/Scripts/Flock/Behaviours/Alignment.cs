@@ -9,7 +9,6 @@ namespace Assets.Scripts.Creatures.Components.FlockBehaviours
     {
         public override Vector2 CalculateMove(FlockAgent agent, List<Transform> surrounding)
         {
-            //if no neighbors, maintain current alignment
             if (surrounding.Count == 0)
                 return agent.transform.up;
 

@@ -9,8 +9,8 @@ namespace Assets.Scripts
 {
     public class CreaturesSpawner : MonoBehaviour
     {
-        //public GameObject carnivorePrefab;
-        public FlockAgent herbivorePrefab;        
+        public GameObject carnivorePrefab;
+        public GameObject herbivorePrefab;        
         public int carnivoreAmount;
         public int herbivoreAmount;
         public float creaturesDensity = 0.08f;
@@ -18,7 +18,7 @@ namespace Assets.Scripts
         private void Start()
         {
             SpawnHerbivores();
-            //SpawnCarnivores();
+            SpawnCarnivores();
         }
 
         public void SpawnHerbivores()
@@ -26,8 +26,14 @@ namespace Assets.Scripts
             for (var i = 0; i < herbivoreAmount; i++)
                 SpawnAgent(herbivorePrefab, herbivoreAmount);
         }
-
-        private void SpawnAgent(FlockAgent agentPrefab, int creaturesCount)
+        
+        public void SpawnCarnivores()
+        {
+            for (var i = 0; i < carnivoreAmount; i++)
+                SpawnAgent(carnivorePrefab, carnivoreAmount);
+        }
+        
+        private void SpawnAgent(GameObject agentPrefab, int creaturesCount)
         {
             var spawnPos = Random.insideUnitCircle * creaturesCount * creaturesDensity;
             var rotation = Quaternion.Euler(UnityEngine.Vector3.forward * Random.Range(0f, 360f));

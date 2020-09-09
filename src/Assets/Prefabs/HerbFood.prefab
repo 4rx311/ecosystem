@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 6465310317616125392}
   - component: {fileID: 3414990715422471002}
   - component: {fileID: 5333211477497483472}
-  - component: {fileID: 4805777528401261401}
-  - component: {fileID: 67942556933774210}
+  - component: {fileID: 2762311345426420299}
   m_Layer: 0
   m_Name: HerbFood
   m_TagString: HerbFood
@@ -72,7 +71,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.3
---- !u!114 &4805777528401261401
+--- !u!114 &2762311345426420299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -84,20 +83,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d8b6364bdd65a4d82c6fab84a09f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &67942556933774210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 54150203040265565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bf5d51c573d4d949a3598d2430e522f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemy: {fileID: 6465310317616125392}
-  speed: 100
 --- !u!1 &1370320816368523685
 GameObject:
   m_ObjectHideFlags: 0

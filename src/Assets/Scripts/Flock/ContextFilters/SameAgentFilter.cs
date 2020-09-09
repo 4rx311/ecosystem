@@ -15,7 +15,7 @@ namespace Assets.Scripts.Creatures.Components.FlockContextFilters
             foreach (var item in original)
             {
                 var itemAgent = item.GetComponent<FlockAgent>();
-                if (itemAgent != null && itemAgent.AgentFlock == agent.AgentFlock)
+                if (itemAgent != null && itemAgent.tag == agent.tag)
                     filtered.Add(item);
             }
 

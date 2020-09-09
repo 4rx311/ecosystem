@@ -13,7 +13,6 @@ namespace Behaviours.FlockBehaviours
 
         public override Vector2 CalculateMove(FlockAgent agent, List<Transform> surrounding)
         {
-            //if no neighbors, return no adjustment
             if (surrounding.Count == 0)
                 return Vector2.zero;
 
