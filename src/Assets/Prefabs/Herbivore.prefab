@@ -83,6 +83,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df062adec43438f94078b3614c2dfdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  behaviors:
+  - {fileID: 11400000, guid: fcfb1c7b932779c44a9fa2e8e0410a49, type: 2}
+  - {fileID: 11400000, guid: 943534d1f9d821b49bdcd9cc83c32b3f, type: 2}
+  - {fileID: 11400000, guid: bd878ca4294fc47468da6d803f78ebdb, type: 2}
+  weights:
+  - 1
+  - 1
+  - 1
+  driveFactor: 10
+  maxSpeed: 5
+  neighborRadius: 1.5
+  avoidanceRadiusMultiplier: 0.5
 --- !u!1 &7364379606537465687
 GameObject:
   m_ObjectHideFlags: 0

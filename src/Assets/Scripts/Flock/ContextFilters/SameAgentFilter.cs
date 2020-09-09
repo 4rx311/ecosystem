@@ -6,7 +6,8 @@ namespace Assets.Scripts.Creatures.Components.FlockContextFilters
     /// <summary>
     ///     Detecting other flock agents
     /// </summary>
-    public class SameFilter : ContextFilter
+    [CreateAssetMenu(menuName = "Flock/Filters/Same Agent Filter")]  
+    public class SameAgentFilter : ContextFilter
     {
         public override List<Transform> Filter(FlockAgent agent, List<Transform> original)
         {

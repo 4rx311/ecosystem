@@ -6,7 +6,8 @@ namespace Assets.Scripts.Creatures.Components.FlockContextFilters
     /// <summary>
     ///     Detecting physical obstacles
     /// </summary>
-    public class PhysicalLayerFilter : ContextFilter
+    [CreateAssetMenu(menuName = "Flock/Filters/Obstacle Layer Filter")]
+    public class ObstacleLayerFilter : ContextFilter
     {
         public LayerMask mask;
         

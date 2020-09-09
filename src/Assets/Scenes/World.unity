@@ -168,7 +168,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &160787538
 GameObject:
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 160787539}
   - component: {fileID: 160787541}
   - component: {fileID: 160787540}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ Transform:
   - {fileID: 1719472562}
   - {fileID: 688658396}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &581518835
 GameObject:
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 688658396}
   - component: {fileID: 688658398}
   - component: {fileID: 688658397}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,55 +503,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1625727608
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1625727610}
-  - component: {fileID: 1625727609}
-  m_Layer: 0
-  m_Name: FlockController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1625727609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1625727608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bd1aa8c9700ddf499656381d593fdb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 2099413393}
-  behavior: {fileID: 11400000, guid: a4ba30f62cfef694bb0c9b3fea5b7150, type: 2}
-  avoidanceRadiusMultiplier: 0.5
-  driveFactor: 10
-  maxSpeed: 5
-  neighborRadius: 1.5
---- !u!4 &1625727610
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1625727608}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.199521, y: 0.6339865, z: -10.120238}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1669941419
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -564,15 +515,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 54150203040265565, guid: f66015fd790478f49b1ea48a6bce37dd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 54150203040265565, guid: f66015fd790478f49b1ea48a6bce37dd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370320816368523685, guid: f66015fd790478f49b1ea48a6bce37dd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5610619
+      value: 1.18
       objectReference: {fileID: 0}
     - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.125146
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
         type: 3}
@@ -622,17 +588,17 @@ PrefabInstance:
     - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f66015fd790478f49b1ea48a6bce37dd, type: 3}
@@ -647,7 +613,7 @@ GameObject:
   - component: {fileID: 1719472562}
   - component: {fileID: 1719472564}
   - component: {fileID: 1719472563}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -756,15 +722,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 54150203040265565, guid: f66015fd790478f49b1ea48a6bce37dd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 54150203040265565, guid: f66015fd790478f49b1ea48a6bce37dd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370320816368523685, guid: f66015fd790478f49b1ea48a6bce37dd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3727045
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.9918847
+      value: -0.53
       objectReference: {fileID: 0}
     - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
         type: 3}
@@ -811,6 +792,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f66015fd790478f49b1ea48a6bce37dd, type: 3}
 --- !u!1 &1824274008
@@ -824,7 +820,7 @@ GameObject:
   - component: {fileID: 1824274009}
   - component: {fileID: 1824274011}
   - component: {fileID: 1824274010}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -933,6 +929,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Obstacle
       objectReference: {fileID: 0}
+    - target: {fileID: 54150203040265565, guid: f66015fd790478f49b1ea48a6bce37dd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 54150203040265565, guid: f66015fd790478f49b1ea48a6bce37dd,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1370320816368523685, guid: f66015fd790478f49b1ea48a6bce37dd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -941,7 +952,7 @@ PrefabInstance:
     - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4972888
+      value: -0.44
       objectReference: {fileID: 0}
     - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
         type: 3}
@@ -988,6 +999,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6465310317616125392, guid: f66015fd790478f49b1ea48a6bce37dd,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f66015fd790478f49b1ea48a6bce37dd, type: 3}
 --- !u!1 &2099413392
@@ -1019,14 +1045,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978e61f436becad46820c6f9e06d8f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carnivorePrefab: {fileID: 7802793637514031372, guid: 38bb61b8c30518f478f83b90a6282964,
+  herbivorePrefab: {fileID: -7505284452881136472, guid: d308011f65f768945a84400f73d03a9c,
     type: 3}
-  herbivorePrefab: {fileID: 3560847819842951699, guid: d308011f65f768945a84400f73d03a9c,
-    type: 3}
-  carnivoreAmount: 3
-  herbivoreAmount: 0
-  creaturesDensity: 0.08
-  Herbivores: []
+  carnivoreAmount: 0
+  herbivoreAmount: 100
+  creaturesDensity: 0.09
 --- !u!4 &2099413394
 Transform:
   m_ObjectHideFlags: 0

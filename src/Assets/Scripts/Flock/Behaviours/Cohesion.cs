@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Assets.Scripts.Creatures.Components;
 using Assets.Scripts.Creatures.Components.FlockContextFilters;
 using UnityEngine;
