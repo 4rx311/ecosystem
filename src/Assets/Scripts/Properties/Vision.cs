@@ -6,10 +6,12 @@ using UnityEngine;
 namespace Assets.Scripts.Creatures
 {
     [RequireComponent(typeof(Collider2D))]
-    public abstract class Agent : MonoBehaviour
+    public class Vision : MonoBehaviour
     {
+        public float visionRadius = 1f;
         public Collider2D AgentCollider { get; private set; }
-        
+
+        public List<Transform> GetNearbyObjects() => GetNearbyObjects(visionRadius);
         public List<Transform> GetNearbyObjects(float radius)
         {
             var context = new List<Transform>();
@@ -20,24 +22,33 @@ namespace Assets.Scripts.Creatures
             return context;
         }
         
-        public GameObject FindClosestTarget(string targetTagName)
+        public Transform FindClosestTarget(string tagName)
         {
+            var surrounding = GetNearbyObjects();
+            var filteredSurrounding = new List<Transform>();
+            foreach (var item in surrounding)
+                if (item.CompareTag(tagName))
+                    filteredSurrounding.Add(item);
+            
+            if (filteredSurrounding.Count == 0)
+                return null;
+            
             var position = transform.position;
-            return GameObject.FindGameObjectsWithTag(targetTagName)
+            var closest = filteredSurrounding
                 .OrderBy(o => (o.transform.position - position).sqrMagnitude)
                 .FirstOrDefault();
+            
+            return closest;
         }
 
+        public bool TargetInRange(string tagName) => TargetInRange(tagName, visionRadius);
         public bool TargetInRange(string tagName, float visionDistance)
         {
             var target = FindClosestTarget(tagName);
-            if (target == null)
+            if (target is null)
                 return false;
-            float distanceToTarget = Vector2.Distance(target.transform.position, transform.position);
-            if (distanceToTarget <= visionDistance)
-                return true;
-
-            return false;
+            var distanceToTarget = Vector2.Distance(target.transform.position, transform.position);
+            return distanceToTarget <= visionDistance;
         }
     }
 }

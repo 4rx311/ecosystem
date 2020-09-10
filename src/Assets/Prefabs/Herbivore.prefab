@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 7215858514871835011}
   - component: {fileID: 6289523665005627990}
   - component: {fileID: 7761828394296702380}
+  - component: {fileID: 6453014694807797060}
   - component: {fileID: 1912912661015653684}
   - component: {fileID: -7505284452881136472}
   - component: {fileID: 4404057233343338771}
+  - component: {fileID: 1054392143009545433}
   m_Layer: 0
   m_Name: Herbivore
   m_TagString: Herbivore
@@ -89,6 +91,18 @@ MonoBehaviour:
   deathEffect: {fileID: 1805389993079476, guid: fca486a4d3e6ffb4b99ebb0263cd4ed9,
     type: 3}
   healthPoints: 100
+--- !u!114 &6453014694807797060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560847819842951699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add12abe824d2bd4ba96fc120f4bd275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1912912661015653684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +151,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d920c467f147df965edd1338c44136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1054392143009545433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560847819842951699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fc1e903c0c1dd4bbd6bf7a990d27b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 0}
+  vision: {fileID: 0}
+  viewDistance: 1
 --- !u!1 &7364379606537465687
 GameObject:
   m_ObjectHideFlags: 0

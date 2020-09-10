@@ -7,7 +7,8 @@ using UnityEngine;
 namespace Assets.Scripts.Creatures.Components
 {
     [RequireComponent(typeof(Movement))]
-    public class FlockAgent : Agent
+    [RequireComponent(typeof(Vision))]
+    public class FlockAgent : MonoBehaviour
     {
         public FlockBehaviour[] behaviors;
         public float[] weights;
@@ -18,18 +19,20 @@ namespace Assets.Scripts.Creatures.Components
         public float SquareAvoidanceRadius { get; private set; }
         
         private Movement _movement;
+        private Vision _vision;
         private float squareNeighborRadius;
 
         private void Start()
         {
             _movement = GetComponent<Movement>();
+            _vision = GetComponent<Vision>();
             squareNeighborRadius = neighborRadius * neighborRadius;
             SquareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
         }
         
         private void Update()
         {
-            var surrounding = GetNearbyObjects(neighborRadius);
+            var surrounding = _vision.GetNearbyObjects(neighborRadius);
             var vector = ChooseBehaviour(surrounding);
             _movement.Move(vector);
         }
