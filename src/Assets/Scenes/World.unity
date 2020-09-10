@@ -154,6 +154,7 @@ MonoBehaviour:
     type: 3}
   foodStartAmount: 5
   spawnRadius: 5
+  density: 1
 --- !u!4 &87051933
 Transform:
   m_ObjectHideFlags: 0
@@ -5550,8 +5551,8 @@ MonoBehaviour:
     type: 3}
   carnivoreAmount: 0
   herbivoreAmount: 50
-  creaturesDensity: 1
-  spwanindRadius: 4
+  spawnRadius: 5
+  density: 1
 --- !u!4 &2099413394
 Transform:
   m_ObjectHideFlags: 0
