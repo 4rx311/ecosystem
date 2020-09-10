@@ -18,6 +18,9 @@ namespace Assets.Scripts.Creatures.Components
 
         public void TakeDamage(int amount)
         {
+            if (amount < 0)
+                return;
+            
             healthPoints -= amount;
 
             if (healthPoints <= 0)

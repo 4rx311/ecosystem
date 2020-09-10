@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3414990715422471002}
   - component: {fileID: 5333211477497483472}
   - component: {fileID: 2762311345426420299}
+  - component: {fileID: 4858715296226398526}
+  - component: {fileID: 7664914945567344699}
   m_Layer: 0
   m_Name: HerbFood
   m_TagString: HerbFood
@@ -81,6 +83,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80d8b6364bdd65a4d82c6fab84a09f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4858715296226398526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54150203040265565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 174e558f33066ed4a96849a956b2bf1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 150
+--- !u!114 &7664914945567344699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54150203040265565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d920c467f147df965edd1338c44136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1370320816368523685

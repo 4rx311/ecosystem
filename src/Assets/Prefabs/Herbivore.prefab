@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7761828394296702380}
   - component: {fileID: 1912912661015653684}
   - component: {fileID: -7505284452881136472}
+  - component: {fileID: 4404057233343338771}
   m_Layer: 0
   m_Name: Herbivore
   m_TagString: Herbivore
@@ -85,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642d07c54ad47db409d023f0eb8ce2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathEffect: {fileID: 1404594008447746, guid: fb820ff0e264d0d45b1b1b755625be5d,
+  deathEffect: {fileID: 1805389993079476, guid: fca486a4d3e6ffb4b99ebb0263cd4ed9,
     type: 3}
   healthPoints: 100
 --- !u!114 &1912912661015653684
@@ -124,6 +125,18 @@ MonoBehaviour:
   - 1
   neighborRadius: 1
   avoidanceRadiusMultiplier: 0.5
+--- !u!114 &4404057233343338771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560847819842951699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d920c467f147df965edd1338c44136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7364379606537465687
 GameObject:
   m_ObjectHideFlags: 0

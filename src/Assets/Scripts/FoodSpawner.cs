@@ -2,12 +2,13 @@
 
 namespace Assets.Scripts.Creatures
 {
-    public class EnvironmentSpawner : MonoBehaviour
+    public class FoodSpawner : MonoBehaviour
     {
         public GameObject foodPrefab;
         public int foodStartAmount;
-        public float spawnRadius = 10f;
-
+        public float spawnRadius = 7f;
+        [Range(0f,1f)]public float density = 1f;
+        
         private void Start()
         {
             SpawnFood();
@@ -19,12 +20,12 @@ namespace Assets.Scripts.Creatures
                 SpawnFood(foodPrefab);
         }
 
-        private void SpawnFood(GameObject creaturePrefab)
+        private void SpawnFood(GameObject agentPrefab)
         {
-            var spawnPos = new Vector2();
-            spawnPos += Random.insideUnitCircle.normalized;
+            var spawnPos = Random.insideUnitCircle * spawnRadius * density;
+            var rotation = Quaternion.Euler(UnityEngine.Vector3.forward * Random.Range(0f, 360f));
 
-            Instantiate(creaturePrefab, spawnPos, Quaternion.identity);
-        } 
+            Instantiate(agentPrefab, spawnPos, rotation, transform);
+        }
     }
 }
