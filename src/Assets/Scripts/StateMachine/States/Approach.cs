@@ -4,12 +4,12 @@ namespace Assets.Scripts.Creatures.States
 {
     public class Approach : IState
     {
-        private readonly Creature _creature;
+        private readonly Agent _agent;
         private readonly string _targetTagName;
 
-        public Approach(Creature creature, string targetTagName)
+        public Approach(Agent agent, string targetTagName)
         {
-            _creature = creature;
+            _agent = agent;
             _targetTagName = targetTagName;
         }
 
@@ -20,7 +20,7 @@ namespace Assets.Scripts.Creatures.States
         public void DoOnTick()
         {
             var targetPosition = GetTargetPosition();
-            _creature.MoveTo(targetPosition);
+            //_agent.MoveTo(targetPosition);
         }
 
         public void OnExit()
@@ -29,7 +29,7 @@ namespace Assets.Scripts.Creatures.States
 
         private Vector3 GetTargetPosition()
         {
-            var target = _creature.FindClosestTarget(_targetTagName);
+            var target = _agent.FindClosestTarget(_targetTagName);
             return target?.transform.position ?? Vector3.zero;
         }
 

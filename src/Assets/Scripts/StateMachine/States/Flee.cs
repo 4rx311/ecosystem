@@ -6,12 +6,12 @@ namespace Assets.Scripts.Creatures.States
 {
     public class Flee : IState
     {
-        private readonly Creature _fleeingCreature;
+        private readonly Agent _fleeingAgent;
         private readonly string _targetTagName;
 
-        public Flee(Creature fleeingCreature, string targetTagName)
+        public Flee(Agent fleeingAgent, string targetTagName)
         {
-            _fleeingCreature = fleeingCreature;
+            _fleeingAgent = fleeingAgent;
             _targetTagName = targetTagName;
         }
 
@@ -22,7 +22,7 @@ namespace Assets.Scripts.Creatures.States
         public void DoOnTick()
         {
             var away = GetRandomPoint();
-            _fleeingCreature.MoveTo(away);
+            //_fleeingAgent.MoveTo(away);
         }
 
         public void OnExit()
@@ -32,15 +32,15 @@ namespace Assets.Scripts.Creatures.States
         private Vector3 GetRandomPoint()
         {
             var nearestCreaturePosition = GetNearestCraturePosition();
-            var directionFromTarget = _fleeingCreature.transform.position - nearestCreaturePosition;
+            var directionFromTarget = _fleeingAgent.transform.position - nearestCreaturePosition;
 
-            var endPoint = _fleeingCreature.transform.position + (directionFromTarget * _fleeingCreature.visionDistance);
+            var endPoint = _fleeingAgent.transform.position + (directionFromTarget /* _fleeingAgent.visionDistance*/);
             return endPoint;
         }
 
         private Vector3 GetNearestCraturePosition()
         {
-            var creature = _fleeingCreature.FindClosestTarget(_targetTagName);
+            var creature = _fleeingAgent.FindClosestTarget(_targetTagName);
             return creature?.transform.position ?? Vector3.zero;
         }
     }

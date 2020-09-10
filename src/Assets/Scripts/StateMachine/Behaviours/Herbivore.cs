@@ -5,17 +5,15 @@ using UnityEngine;
 
 namespace Assets.Scripts.Creatures
 {
-    public class Herbivore : Creature
+    public class Herbivore : Agent
     {
         private static List<Rigidbody2D> _creaturesRbs;
         private StateMachine _stateMachine;
         private Vector2 _velocity;
 
-        private void Start() => base.Start();
-
+        public float viewDistance = 1f;
+        
         private void Update() => _stateMachine.DoOnTick();
-
-        private void OnDestroy() => base.OnDestroy();
 
         private void Awake()
         {
@@ -25,10 +23,10 @@ namespace Assets.Scripts.Creatures
             var approach = new Approach(this, "HerbFood");
             var flee = new Flee(this, "Carnivore");
             
-            _stateMachine.AddAnyTransition(flee, () => TargetInRange("Carnivore"));
-            At(flee, search, () => !TargetInRange("Carnivore"));
-            At(search, approach, () => TargetInRange("HerbFood"));
-            At(approach, search, () => !TargetInRange("HerbFood"));
+            _stateMachine.AddAnyTransition(flee, () => TargetInRange("Carnivore", viewDistance));
+            At(flee, search, () => !TargetInRange("Carnivore", viewDistance));
+            At(search, approach, () => TargetInRange("HerbFood", viewDistance));
+            At(approach, search, () => !TargetInRange("HerbFood", viewDistance));
 
             _stateMachine.SetState(search);
             

@@ -6,9 +6,8 @@ using UnityEngine;
 
 namespace Assets.Scripts.Creatures.Components
 {
-    [RequireComponent(typeof(Collider2D))]
     [RequireComponent(typeof(Movement))]
-    public class FlockAgent : MonoBehaviour
+    public class FlockAgent : Agent
     {
         public FlockBehaviour[] behaviors;
         public float[] weights;
@@ -16,10 +15,8 @@ namespace Assets.Scripts.Creatures.Components
         [Range(1f, 10f)] public float neighborRadius = 1.5f;
         [Range(0f, 1f)] public float avoidanceRadiusMultiplier = 0.5f;
         
-        public Collider2D AgentCollider { get; private set; }
         public float SquareAvoidanceRadius { get; private set; }
         
-
         private Movement _movement;
         private float squareNeighborRadius;
 
@@ -32,7 +29,7 @@ namespace Assets.Scripts.Creatures.Components
         
         private void Update()
         {
-            var surrounding = GetNearbyObjects();
+            var surrounding = GetNearbyObjects(neighborRadius);
             var vector = ChooseBehaviour(surrounding);
             _movement.Move(vector);
         }
@@ -58,16 +55,6 @@ namespace Assets.Scripts.Creatures.Components
             }
 
             return move;
-        }
-
-        public List<Transform> GetNearbyObjects()
-        {
-            var context = new List<Transform>();
-            var contextColliders = Physics2D.OverlapCircleAll(transform.position, neighborRadius);
-            foreach (var c in contextColliders)
-                if (c != AgentCollider)
-                    context.Add(c.transform);
-            return context;
         }
     }
 }

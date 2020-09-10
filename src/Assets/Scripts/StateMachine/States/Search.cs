@@ -6,15 +6,15 @@ namespace Assets.Scripts.Creatures.States
 {
     public class Search : IState
     {
-        private readonly Creature _searchingCreature;
+        private readonly Agent _searchingAgent;
         private DateTime _currentTime => DateTime.Now;
         private DateTime _previousTick;
         private const float _changeDirectionInterval = 1;
 
-        public Search(Creature searchingCreature)
+        public Search(Agent searchingAgent)
         {
             _previousTick = DateTime.Now;
-            _searchingCreature = searchingCreature;
+            _searchingAgent = searchingAgent;
         }
 
         public void DoOnTick()
@@ -23,7 +23,7 @@ namespace Assets.Scripts.Creatures.States
             if (passedTime > _changeDirectionInterval)
             {
                 var randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-                _searchingCreature.MoveTo(randomDirection);
+                //_searchingAgent.MoveTo(randomDirection);
                 _previousTick = DateTime.Now;
             }
         }
