@@ -15,7 +15,7 @@ namespace Properties
             _renderers = GetComponentsInChildren<Renderer>();
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             ScreenWrap();
         }
