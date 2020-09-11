@@ -10,6 +10,7 @@ namespace Assets.Scripts.Creatures.States
         private DateTime _currentTime => DateTime.Now;
         private DateTime _previousTick;
         private const float _changeDirectionInterval = 1;
+        private Vector2 _currentDirection; 
 
         public Search(AnimalAgent searchingAgent)
         {
@@ -19,13 +20,14 @@ namespace Assets.Scripts.Creatures.States
 
         public void DoOnTick()
         {
-            /*var passedTime = (_currentTime - _previousTick).TotalSeconds;
+            var passedTime = (_currentTime - _previousTick).TotalSeconds;
             if (passedTime > _changeDirectionInterval)
             {
-                var randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-                _searchingAgent.movement.Move(randomDirection);
+                _currentDirection = _searchingAgent.movement.GetRandomDirection();
                 _previousTick = DateTime.Now;
-            }*/
+            }
+            
+            _searchingAgent.movement.Move(_currentDirection);
         }
 
         public void OnEnter()

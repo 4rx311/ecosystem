@@ -12,7 +12,6 @@ namespace Assets.Scripts.Creatures.Components.FlockBehaviours
             if (surrounding.Count == 0)
                 return agent.transform.up;
 
-            //add all points together and average
             var alignmentMove = Vector2.zero;
             var filteredSurrounding = filter == null
                 ? surrounding

@@ -7,10 +7,8 @@ namespace Assets.Scripts.Creatures
 {
     public class Herbivore : AnimalAgent
     {
-        private static List<Rigidbody2D> _creaturesRbs;
         private StateMachine _stateMachine;
-        private Vector2 _velocity;
-
+        
         private const string _tagCarnivore = "Carnivore";
         private const string _tagHerbFood = "HerbFood";
 
@@ -23,7 +21,7 @@ namespace Assets.Scripts.Creatures
         {
             _stateMachine = new StateMachine();
             
-            var search = new Search(this);
+            var search = new Empty();
             var approach = new Approach(this, _tagHerbFood);
             var flee = new Flee(this, _tagCarnivore);
             

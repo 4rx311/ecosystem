@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Behaviours
 {
@@ -23,6 +24,15 @@ namespace Behaviours
             
             transform.up = velocity;
             transform.position += (Vector3) velocity * Time.deltaTime;
+        }
+
+        public Vector2 GetRandomDirection()
+        {
+            float angle = Random.Range(-Mathf.PI, Mathf.PI);
+            //var randomDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+            var newDir = Mathf.Sin(angle) * Vector3.up + Mathf.Cos(angle) * Vector3.right;
+            return newDir;
+            //Move(newDir - transform.position);
         }
     }
 }

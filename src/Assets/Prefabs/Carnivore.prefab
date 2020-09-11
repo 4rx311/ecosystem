@@ -93,7 +93,12 @@ GameObject:
   - component: {fileID: 7802793637514031373}
   - component: {fileID: 7802793637514031371}
   - component: {fileID: 4603185572468141291}
-  - component: {fileID: 8589712124040107295}
+  - component: {fileID: 1327675754468091578}
+  - component: {fileID: 1508143407836940871}
+  - component: {fileID: 1020489808422010475}
+  - component: {fileID: 1587138564980974233}
+  - component: {fileID: 4590083795704026372}
+  - component: {fileID: 1862416970347249858}
   m_Layer: 0
   m_Name: Carnivore
   m_TagString: Carnivore
@@ -165,9 +170,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642d07c54ad47db409d023f0eb8ce2ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathEffect: {fileID: 0}
-  healthPoints: 0
---- !u!114 &8589712124040107295
+  deathEffect: {fileID: 1805389993079476, guid: fca486a4d3e6ffb4b99ebb0263cd4ed9,
+    type: 3}
+  healthPoints: 100
+--- !u!114 &1327675754468091578
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -176,7 +182,73 @@ MonoBehaviour:
   m_GameObject: {fileID: 7802793637514031372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcdc544bbe53b1f4da63aef87fe23a02, type: 3}
+  m_Script: {fileID: 11500000, guid: 80af392f1b534852ae4f950d29b351bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  neighborViewRadius: 1.5
+  driveFactor: 10
+  maxSpeed: 5
+--- !u!114 &1508143407836940871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802793637514031372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0afa6d87e44747ad86ad6dbd6f45ba2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1020489808422010475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802793637514031372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a436b686658e449dafdeaf366e10799f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTagName: Herbivore
+  damageAmount: 100
+--- !u!114 &1587138564980974233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802793637514031372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15d920c467f147df965edd1338c44136, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4590083795704026372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802793637514031372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add12abe824d2bd4ba96fc120f4bd275, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visionRadius: 1
+--- !u!114 &1862416970347249858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7802793637514031372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f326627ed237354d933f5b60ea335be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 0}
+  vision: {fileID: 0}

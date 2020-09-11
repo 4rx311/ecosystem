@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Properties
 {
+    [RequireComponent(typeof(Metabolism))]
     public class Eat : MonoBehaviour
     {
         public string targetTagName;
