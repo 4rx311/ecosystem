@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7664914945567344699}
   - component: {fileID: 257149448494811185}
   m_Layer: 0
-  m_Name: HerbFood
+  m_Name: Meat
   m_TagString: HerbFood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,8 +183,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 84b9490d747bc554a8fc1dbe767413aa, type: 3}
-  m_Color: {r: 0.7176471, g: 0.7264151, b: 0.4557227, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 2cc319e5fb459fd4f9f44543abdbda2e, type: 3}
+  m_Color: {r: 0.67058825, g: 0.31764707, b: 0.27058825, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.Creatures
 {
@@ -8,10 +10,24 @@ namespace Assets.Scripts.Creatures
         public int foodStartAmount;
         public float spawnRadius = 7f;
         [Range(0f,1f)]public float density = 1f;
+        public float spawnDelay = 10000f;
+        
+        private DateTime _currentTime => DateTime.Now;
+        private DateTime _previousTick;
         
         private void Start()
         {
             SpawnFood();
+        }
+
+        private void FixedUpdate()
+        {
+            var passedTime = (_currentTime - _previousTick).TotalSeconds;
+            if (passedTime < spawnDelay) 
+                return;
+            
+            SpawnFood();
+            _previousTick = DateTime.Now;
         }
 
         public void SpawnFood()
