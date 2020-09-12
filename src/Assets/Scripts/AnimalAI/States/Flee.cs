@@ -20,7 +20,7 @@ namespace Assets.Scripts.Creatures.States
             Debug.Log($"Enter state: {this.GetType().Name}");
         }
 
-        public void DoOnTick()
+        public void OnTick()
         {
             var away = GetRandomPoint();
             _fleeingAgent.movement.Move(away);

@@ -18,7 +18,7 @@ namespace Assets.Scripts.Creatures.States
             _searchingAgent = searchingAgent;
         }
 
-        public void DoOnTick()
+        public void OnTick()
         {
             var passedTime = (_currentTime - _previousTick).TotalSeconds;
             if (passedTime > _changeDirectionInterval)

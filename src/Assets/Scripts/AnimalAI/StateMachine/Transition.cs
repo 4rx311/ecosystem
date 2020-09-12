@@ -6,24 +6,21 @@ namespace Assets.Scripts.Creatures.States
     {
         private class Transition
         {
-            public bool IsEmpty;
+            private readonly Func<bool> _condition;
 
-            public Transition(IState to, Func<bool> condition)
+            public Transition(IState from, IState to, Func<bool> condition)
             {
+                From = from;
                 To = to;
-                Condition = condition;
+                _condition = condition;
             }
 
-            public Func<bool> Condition { get; }
-
+            public IState From { get; }
             public IState To { get; }
 
-            public static Transition CreateEmpty()
+            public bool CheckCondition()
             {
-                return new Transition(null, null)
-                {
-                    IsEmpty = true
-                };
+                return _condition();
             }
         }
     }

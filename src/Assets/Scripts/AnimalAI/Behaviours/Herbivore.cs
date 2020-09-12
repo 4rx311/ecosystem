@@ -25,10 +25,11 @@ namespace Assets.Scripts.Creatures
             var approach = new Approach(this, _tagHerbFood);
             var flee = new Flee(this, _tagCarnivore);
             
-            _stateMachine.AddAnyTransition(flee, () => vision.TargetInRange(_tagCarnivore));
+            //_stateMachine.AddAnyTransition(flee, () => vision.TargetInRange(_tagCarnivore));
+            At(search, flee, () => !vision.TargetInRange(_tagCarnivore));
             At(flee, search, () => !vision.TargetInRange(_tagCarnivore));
             At(search, approach, () => vision.TargetInRange(_tagHerbFood));
-            //At(approach, search, () => !vision.TargetInRange(_tagHerbFood, viewDistance));
+            //At(approach, search, () => !vision.TargetInRange(_tagHerbFood));
 
             _stateMachine.SetState(search);
             
@@ -36,6 +37,6 @@ namespace Assets.Scripts.Creatures
                 _stateMachine.AddTransition(from, to, condition);
         }
 
-        private void Update() => _stateMachine.DoOnTick();
+        private void Update() => _stateMachine.OnTick();
     }
 }

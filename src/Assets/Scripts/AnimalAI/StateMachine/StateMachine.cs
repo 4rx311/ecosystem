@@ -1,74 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
-using JetBrains.Annotations;
-using UnityEngine;
+using System.Linq;
 
 namespace Assets.Scripts.Creatures.States
 {
+    public static class IStateExtensions
+    {
+        private static readonly Func<IState, bool > _checkActionCondition =
+            state => state != Empty.Instance && state is object;
+        
+        public static void NotEmptyStateSelfAction(this IState state, Action<IState> action)
+        {
+            if (_checkActionCondition(state))
+                action(state);
+        }
+        
+        public static void NotEmptyStateSelfAction(this IState state, Action action)
+        {
+            if (_checkActionCondition(state))
+                action();
+        }
+    }
+    
     public partial class StateMachine
     {
-        private static readonly List<Transition> EmptyTransitions = new List<Transition>(0);
-        private readonly List<Transition> _anyTransitions = new List<Transition>();
-        private IState _currentState;
-        private List<Transition> _currentTransitions = new List<Transition>();
-
-        private readonly Dictionary<Type, List<Transition>> _transitions =
-            new Dictionary<Type, List<Transition>>();
-
-        public void DoOnTick()
-        {
-            var transition = GetTransition();
-            if (!transition.IsEmpty)
-                SetState(transition.To);
-
-            _currentState?.DoOnTick();
-        }
-
-        public void SetState([NotNull] IState state)
-        {
-            if (state == null) throw new ArgumentNullException(nameof(state));
-
-            if (state == _currentState)
-                return;
-
-            _currentState?.OnExit();
-            _currentState = state;
-
-            _transitions.TryGetValue(_currentState.GetType(), out _currentTransitions);
-            if (_currentTransitions == null)
-                _currentTransitions = EmptyTransitions;
-
-            _currentState.OnEnter();
-        }
+        private IState _currentState = Empty.Instance;
+        private readonly List<Transition> _transitions = new List<Transition>();
 
         public void AddTransition(IState from, IState to, Func<bool> predicate)
         {
-            if (_transitions.TryGetValue(from.GetType(),
-                out var transitions) == false)
-            {
-                transitions = new List<Transition>();
-                _transitions[from.GetType()] = transitions;
-            }
+            _transitions.Add(new Transition(from, to, predicate));
 
-            transitions.Add(new Transition(to, predicate));
+            //todo надо проверять что не добавляются одинаковые переходы?
         }
 
-        public void AddAnyTransition(IState state, Func<bool> predicate)
+        public void OnTick()
         {
-            _anyTransitions.Add(new Transition(state, predicate));
+            var differentState = GetDifferentState();
+            SetState(differentState);
+
+            _currentState.NotEmptyStateSelfAction(_currentState.OnTick);
         }
 
-        private Transition GetTransition()
+
+        public void SetState(IState state)
         {
-            foreach (var transition in _anyTransitions)
-                if (transition.Condition())
-                    return transition;
+            if (_currentState == state)
+                return;
 
-            foreach (var transition in _currentTransitions)
-                if (transition.Condition())
-                    return transition;
+            _currentState.NotEmptyStateSelfAction(_currentState.OnExit);
+            _currentState = state;
+            _currentState.NotEmptyStateSelfAction(_currentState.OnEnter);
+        }
 
-            return Transition.CreateEmpty();
+        private IState GetDifferentState()
+        {
+            var transitions = _transitions.Where(x => x.CheckCondition()).ToArray();
+            if (transitions.Length > 1)
+                throw new InvalidOperationException();
+
+            var transitionState = transitions.FirstOrDefault()?.To;
+
+            //todo сравнение IState идёт по ссылке на экземпляр - правильно ли это?
+            return transitionState is object && transitionState != _currentState
+                ? transitionState
+                : Empty.Instance;
         }
     }
 }

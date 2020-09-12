@@ -2,7 +2,10 @@
 {
     public class Empty : IState
     {
-        public void DoOnTick()
+        private static readonly IState _instance = new Empty();
+        public static IState Instance => _instance;
+        
+        public void OnTick()
         {
         }
 

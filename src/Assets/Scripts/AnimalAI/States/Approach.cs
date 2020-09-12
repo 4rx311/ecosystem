@@ -21,12 +21,11 @@ namespace Assets.Scripts.Creatures.States
             Debug.Log($"Enter state: {GetType().Name}");
         }
 
-        public void DoOnTick()
+        public void OnTick()
         {
             var closest = _agent.vision.FindClosestTarget(_targetTagName);
             if(closest == null)
                 return;
-            Debug.Log($"move to pos: {closest.position}");
             var direction = closest.position - _agent.transform.position;
             _agent.movement.Move(direction);
         }

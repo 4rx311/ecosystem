@@ -33,7 +33,7 @@ namespace Assets.Scripts.Creatures
                 _stateMachine.AddTransition(from, to, condition);
         }
 
-        private void Update() => _stateMachine.DoOnTick();
+        private void Update() => _stateMachine.OnTick();
 
     }
 }
