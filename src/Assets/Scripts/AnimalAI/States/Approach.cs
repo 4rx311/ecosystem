@@ -26,7 +26,6 @@ namespace Assets.Scripts.Creatures.States
             var closest = _agent.vision.FindClosestTarget(_targetTagName);
             if(closest == null)
                 return;
-            Debug.Log($"move to pos: {closest.position}");
             var direction = closest.position - _agent.transform.position;
             _agent.movement.Move(direction);
         }
